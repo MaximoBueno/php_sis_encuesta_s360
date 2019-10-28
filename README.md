@@ -1,5 +1,5 @@
 # Sistema Encuesta
- Sistema para realizar encuesta realizado con PHP, MySQL, JavaScript
+ Sistema para realizar encuesta realizado con PHP, MySQLy JavaScript
 
 # Requisitos
  - Instalacion de XAMPP
