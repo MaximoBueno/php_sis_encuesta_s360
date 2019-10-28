@@ -1,2 +1,2 @@
-# sistemaEncuestaS360
+# Sistema Encuesta
  Sistema para realizar encuesta
