@@ -1,5 +1,5 @@
 # Sistema Encuesta
- Sistema para realizar encuesta online realizado con PHP, MySQLy JavaScript.
+ Sistema para realizar encuesta online realizado con PHP, MySQL y JavaScript.
  
  Versión: 1.0 beta.
  
