@@ -1,4 +1,4 @@
-# Sistema Encuesta Online
+# Sistema Encuesta
  Sistema para realizar encuesta online realizado con PHP, MySQLy JavaScript.
  
  Versión: 1.0 beta.
