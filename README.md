@@ -1,5 +1,5 @@
 # Sistema Encuesta
- Sistema para realizar encuesta online realizado con PHP, MySQL y JavaScript.
+ Sistema para realizar encuesta online para la organización Superación 360.
  
  Versión: 1.0 beta.
  
@@ -9,9 +9,11 @@
  - PHP 7.2.6
  - MySql (MariaDB 10.1.33)
  - De prefrencia instalar de XAMPP
-
+ 
+# Librerias
+ -  Jquery
+ 
 # Compatibilidad con Navegadores:
  - Internet Explorer 7+
  - Últimas versiones de Google Chrome
  - Últimas versiones de Mozilla Firefox
- 
