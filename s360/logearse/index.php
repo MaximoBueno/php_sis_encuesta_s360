@@ -20,10 +20,9 @@ try{
             $consulta = " SELECT nombres, apellidos FROM usuario_ns WHERE usuario = '".$usuario."' AND clave= '".$clave."' LIMIT 1;";
 
             $resultado = $conectar->ejecutarReturn($consulta);
-
-            if(mysqli_num_rows($resultado)>0){
-                $fila = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_NUMERIC);
-
+            $fila = $resultado->fetch_array();
+            if($fila != NULL){
+      
                 $_SESSION['key_token'] = $r;
                 header('Location: ../vista/pregunta/');
 
