@@ -8,7 +8,7 @@
 # Requisitos
  - PHP 7.2.6
  - MySql (MariaDB 10.1.33)
- - De prefrencia instalar de XAMPP
+ - De prefrencia instalar XAMPP
  
 # Librerias
  -  Jquery
