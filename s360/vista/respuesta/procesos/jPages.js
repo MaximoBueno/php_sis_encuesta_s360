@@ -6,6 +6,7 @@
  * Licensed under the MIT license.
  * Copyright 2012 Luís Almeida
  * https://github.com/luis-almeida
+ * MODIFICADO POR MAXIMO HUGO BUENO URIBE
  */
 
 ;(function($, window, document, undefined) {
