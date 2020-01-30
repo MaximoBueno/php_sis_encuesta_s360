@@ -1,7 +1,7 @@
 # Sistema Encuesta
  Sistema para realizar encuesta online para la organización Superación 360.
  
- Versión: 1.0 beta.
+ Versión: 2.0 beta.
  
  Autor: Maximo Hugo Bueno Uribe.
 
