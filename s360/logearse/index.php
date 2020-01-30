@@ -5,9 +5,7 @@ try{
     $clave = NULL;
     if(isset($_POST['usuario']) && isset($_POST['clave'])){
         if(!empty($_POST['usuario']) && !empty($_POST['clave'])){
-
             require('../assets/conx/funciones.php');
-    
             $a=md5(uniqid(mt_rand(), true));
             $b=(microtime(TRUE));
             $r=$a."-".$b;
@@ -17,12 +15,13 @@ try{
 
             $conectar = new funciones();
 
-            $consulta = " SELECT nombres, apellidos FROM usuario_ns WHERE usuario = '".$usuario."' AND clave= '".$clave."' LIMIT 1;";
+            $consulta = " SELECT CONCAT(apellidos, ', ', nombres) as 'p1', usuario FROM usuario_ns WHERE usuario = '".$usuario."' AND clave= '".$clave."' LIMIT 1;";
 
             $resultado = $conectar->ejecutarReturn($consulta);
             $fila = $resultado->fetch_array();
             if($fila != NULL){
-      
+                $_SESSION['usu_nombre'] = $fila[0];
+                $_SESSION['usu_usuario'] = $fila[1];
                 $_SESSION['key_token'] = $r;
                 header('Location: ../vista/pregunta/');
 

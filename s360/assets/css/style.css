@@ -101,24 +101,33 @@ html {
 }
 
 .my-login{
- 
   background: #FFFFFF;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .my-titulo-texto{
-  color: #1a237e;
+    font-size: 18px;
+    color: #1a237e;
+    border-bottom: 1px solid #e5e5e5;
+  
 }
 
 .my-body-style{
-  background: #76b852;
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+  background: rgba(63, 57, 57, 0.904);   
+}
+
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+
+.bd-callout-warning {
+    border-left-color: 
+    #f0ad4e !important;
 }
 
 .my-contenedor{
@@ -136,4 +145,11 @@ html {
     outline:none;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     transition:.3s;  
-  }
+}
+
+.my-img-logo-per{
+    width: 90px;
+    height: 80px;
+    border-radius: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}

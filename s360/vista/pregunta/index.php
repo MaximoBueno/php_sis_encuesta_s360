@@ -1,32 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Preguntas</title>
+    <title>GESTIÓN ENCUESTA</title>
         <?php
             include("./../login/seguridad.php");
             $security = new seguridad();
             $security->getSeguridad();
-
             $ruta='../../';
             require($ruta.'assets/include/links.php');
         ?>
     </title>
+    <link rel="stylesheet" href="./procesos/pregunta.css">
 </head>
 <body>
-    <div class="container-fluid">
-       <div class="col-lg-12 p-0">
+    <div class="container-fluid p-0">
+        <div class="col-lg-12 my-menu-per my-contenedor-sombra">
             <div class="row">
-                <div class="col-lg-6 p-0">
-                    <div class="card">
-                        <div class="card-header my-bg-s360 text-white">
-                            <div class="col-lg-12 p-0">
-                                <h5 class="text-left">Registrar Preguntas</h5>
+                    <div class="col-lg-6 text-rigth">
+                        <div class="row">
+                            <div class="col-lg-2 p-0 centrar-custom">
+                                <img class="my-logo-per img-fluid" 
+                                    src="<?php echo $ruta; ?>assets/img/logobS360.jpg" alt="S360"
+                                    title="S360">
+                            </div>
+                            <div class="col-lg-6 p-0 text-left">
+                                <ul class="my-lista-logo">
+                                    <li class="text-uppercase">SUPERACIÓN 360</li>
+                                    <li class="text-uppercase">SISTEMA DE ENCUESTA ONLINE</li>
+                                    <li class="text-underline"></li>
+                                    <li class="">Poner el área que gestiono el proyecto</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-4 p-0 text-left">
+                                <div class="my_menu_reporte text-center d-none">
+                                    <span title="Reporte de encuesta">Reporte de Encuesta</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body border border-warning">
+                    </div>
+                    <div class="col-lg-6 text-right">
+                        <div class="row">
+                            <div class="col-lg-10 p-0 my-nombre-usuario">
+                                <ul class="my-lista-logo">
+                                    <li class="text-warning">
+                                        <?php echo strtoupper($_SESSION['usu_nombre']); ?>
+                                    </li>
+                                    <li class="myCronoTime" id="myCronoTime">
+                                        <?php echo strtoupper($_SESSION['usu_usuario']); ?>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="my-btn-per" id="my-btn-menu-per" 
+                                            onclick="abrirOpciones();">
+                                            <i class="fa fa-th-list fa-sm px-1"></i>
+                                            <div class="my-usuario-opcion bg-white" id="my-usuario-opcion" 
+                                                style="display: none;">
+                                                <div class="my-opciones p-1 text-left d-none">
+                                                    <div class="form-check py-0">
+                                                        <input type="checkbox" id="myBloqueo" class="form-check-input p-0" >
+                                                        <label for="myBloqueo" class="form-check-label p-1 m-0" >Bloquear</label>    
+                                                    </div>
+                                                </div>
+                                                <div class="my-opciones p-1 text-left">
+                                                    <a title="Reporte de encuesta" href="#"
+                                                        onclick="abrirModalReEncu();">
+                                                        <i class="fa fa-file-excel-o fa-sm p-1"></i> 
+                                                        Reporte de Encuesta
+                                                    </a>
+                                                </div>
+                                                <div class="my-opciones p-1 text-left">
+                                                    <a title="Cerrar sesión" 
+                                                        href="../login/index.php">
+                                                        <i class="fa fa-sign-out fa-sm p-1"></i> 
+                                                        Cerrar sesión
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-2 centrar-custom">
+                                <img class="my-img-per img-fluid" 
+                                    src="<?php echo $ruta; ?>assets/img/usuarioa.png" 
+                                    alt="usuario" title="Usuario">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="col-lg-12 my-contenedor-hijo">
+            <div class="row">
+                <div class="col-lg-6 p-0">
+                <div class="card">
+                        <div class="card-body">
+                            <div class="col-lg-12 p-0">
+                                <h5 class="text-left my-titulo-texto py-3">Registrar Preguntas</h5>
+                            </div>
 
                             <div class="input-group input-group-sm py-1">
                                 <div class="input-group-prepend">
@@ -65,7 +135,7 @@
                                 </button>
                             </div>
                             
-                            <div class="col-lg-md-12 m-3" id="my_alternativas">
+                            <div class="col-lg-12 m-3" id="my_alternativas">
                                 <div class="input-group input-group-sm py-1">
                                     <input type="text" name="my_alter0" id="my_alter0" class="form-control my-tam-alter" disabled
                                         placeholder="Escribe una alternativa" title="Escribe una alternativa" 
@@ -83,11 +153,13 @@
                 </div>
                 <div class="col-lg-6 p-0">
                     <div class="card">
-                        <div class="card-header my-bg-s360 text-white">
-                            <h5>Vista Previa de Preguntas</h5>
-                        </div>
-                        <div class="card-body border border-danger" id="my_encuesta_view">
-                  
+                        <div class="card-body">
+                            <div class="col-lg-12 p-0">
+                                <h5 class="text-left my-titulo-texto py-3">Vista Previa de Preguntas</h5>
+                            </div>
+                            <div class="col-lg-12" id="my_encuesta_view">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -95,12 +167,49 @@
         </div>
     </div>
 
-    <!-- Modal Editar -->
-    <div class="modal fade" id="miModalEditar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+    <!-- Modal Reporte -->
+    <div class="modal fade" id="miModalReEncu" tabindex="-1" role="dialog"aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-dark bg-warning">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Editar Pregunta</h5>
+                        <h5 class="modal-title my-text-white">Reporte de Encuesta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <div class="input-group input-group-sm py-1">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" title="Encuesta">Encuesta</span>
+                                </div>
+                                <select class="form-control form-control-sm" 
+                                    name="my_re_encuesta" id="my_re_encuesta"
+                                    title="Seleccione tipo encuesta" autocomplete="off">
+                                </select>
+                                <button type="button" id="btn-re-encuesta" class="btn btn-success btn-sm mx-1" 
+                                    onclick="reporteEncuExcel();" title="Reporte de encuesta">
+                                    <i class="fa fa-file-excel-o fa-sm px-1" ></i>
+                                </button>
+                        </div>
+                    </div>
+                    <div class="text-left pr-3 pb-3 pl-3">
+                        <button type="button" class="btn btn-danger btn-sm" id="cerrarModalReEncu" 
+                            data-dismiss="modal" aria-label="Close">Salir</button> 
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- Fin Modal Reporte -->
+
+
+
+    <!-- Modal Editar -->
+    <div class="modal fade" id="miModalEditar" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-dark bg-warning">
+                        <h5 class="modal-title my-text-white">Editar Pregunta</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -114,16 +223,16 @@
                         <button type="button" class="btn btn-danger btn-sm" id="cerrarModalEditar" data-dismiss="modal" aria-label="Close">Salir</button> 
                     </div>
                 </div>
-            </div>
+        </div>
     </div>
     <!-- Fin Modal Editar -->
 
     <!-- Modal Desicion -->
-    <div class="modal fade" id="miModalDesicion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="miModalDesicion" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header py-1 bg-info">
-                        <h5 class="modal-title text-white" id="exampleModalCenterTitle">Alerta</h5>
+                        <h5 class="modal-title my-text-white">Alerta</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -152,11 +261,11 @@
     <!-- Fin Modal Desicion -->
 
     <!-- Modal Encuesta -->
-    <div class="modal fade" id="miModalEncuesta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="miModalEncuesta" tabindex="-1" role="dialog"aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-dark bg-warning">
-                        <h5 class="modal-title">Encuesta</h5>
+                        <h5 class="modal-title my-text-white">Encuesta</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -218,13 +327,6 @@
             </div>
     </div>
     <!-- Fin Modal Encuesta -->
-    <div class="my-contenedor">
-        <a class="btn btn-sm btn-warning text-center botonFlotante"
-            title="Cerrar sesión"
-            href="../login/index.php">Cerrar Sesión
-        </a>
-    </div>
-
     <script src="./procesos/pregunta.js"></script>
 </body>
 </html>

@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <title>Prueba</title>
+        <title>SISTEMA DE ENCUESTA</title>
         <?php 
         session_start();
         $ruta = './';
         require($ruta.'assets/include/links.php');
         ?>
     </head>
-
     <body class="my-body-style">
         <div class="alturaClass centrar-custom" >
-                <div class="col-lg-4 my-login py-3" >
-                    <h6 class="text-center font-weight-bold my-titulo-texto py-3">
-                        BIENVENIDO (A) AL SISTEMA DE ENCUESTA
+            <div class="col-lg-4 my-login py-3 bd-callout bd-callout-warning">
+                <div class="col-lg-12 p-0">
+                        <div class="col-sm-12 centrar-custom my-img-content-p">
+                            <img class="my-img-logo-per" src="./assets/img/logobS360.jpg" alt="S360"
+                                title="S360">
+                        </div>
+                </div>
+                <div class="col-lg-12 p-0 ">
+                    <h6 class="text-center my-titulo-texto py-3 border-linea">
+                        SISTEMA DE ENCUESTA ONLINE
                     </h6>
-                    
+                </div>
+                <div class="col-lg-12 p-0">
                     <?php
                     if (!empty($_GET['v']) && !empty($_GET['t']))
                     {
@@ -43,26 +50,13 @@
                                 placeholder="Escribe tu contraseña"
                                 title="Escribe tu contraseña">
                         </div>
-
                         <input type="submit"
-                         class="btn btn-block btn-success text-white font-weight-bold mt-2" 
+                         class="btn btn-block btn-info text-white font-weight-bold mt-2" 
                          title="Ingresar"
                          value="INGRESAR">
-                        <h6 class="mt-2 colorTexto">Comuniquese al correo
-                            <strong>maxhugobueno@gmail.com</strong> si no ha podido acceder.
-                        </h6>
                     </form>
                 </div>
-        </div>
-
-        <div class="fixed-bottom centrar-custom">
-                <div class="alert alert-info alert-dismissible fade show mb-0 text-center">
-                    <strong>Copyright ©maxhugobueno@gmail.com
-                    </strong>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+            </div>
         </div>
     </body>
 </html>
