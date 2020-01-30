@@ -17,3 +17,5 @@
  - Internet Explorer 7+
  - Últimas versiones de Google Chrome
  - Últimas versiones de Mozilla Firefox
+ 
+Nota: Incluye el script de la base de datos.
