@@ -19,4 +19,4 @@
  - Últimas versiones de Mozilla Firefox
  
 # Nota
- -  Script para importar la basese de datos.
+ -  Script para importar la base de datos.
